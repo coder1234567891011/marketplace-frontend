@@ -1,15 +1,17 @@
 import * as Device from 'expo-device';
 import { Platform, StyleSheet } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 
+import { ThemedText } from '@/components/themed-text';
+import { BottomTabInset, MaxContentWidth, Spacing } from '@/constants/theme';
+// import Auth from './auth';
 import { AnimatedIcon } from '@/components/animated-icon';
 import { HintRow } from '@/components/hint-row';
-import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { WebBadge } from '@/components/web-badge';
-import { BottomTabInset, MaxContentWidth, Spacing } from '@/constants/theme';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 function getDevMenuHint() {
+
   if (Platform.OS === 'web') {
     return <ThemedText type="small">use browser devtools</ThemedText>;
   }
@@ -29,6 +31,34 @@ function getDevMenuHint() {
 }
 
 export default function HomeScreen() {
+
+//   const [claims, setClaims] = useState<JwtPayload | null>(null)
+//   useEffect(() => {
+//   supabase.auth.getClaims().then(({ data, error }) => {
+//     if (error || !data) {
+//       setClaims(null);
+//       return;
+//     }
+//     setClaims(data.claims);
+//   });
+
+//   const { data: subscription } = supabase.auth.onAuthStateChange(() => {
+//     supabase.auth.getClaims().then(({ data, error }) => {
+//       if (error || !data) {
+//         setClaims(null);
+//         return;
+//       }
+//       setClaims(data.claims);
+//     });
+//   });
+
+//   return () => subscription.subscription.unsubscribe();
+// }, []);
+// <View>
+//       <Auth />
+//       {claims && <ThemedText>{claims.sub}</ThemedText>}
+// </View>
+
   return (
     <ThemedView style={styles.container}>
       <SafeAreaView style={styles.safeArea}>
